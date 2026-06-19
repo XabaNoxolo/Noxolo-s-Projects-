@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.1" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <context-param>
+        <param-name>character</param-name>
+        <param-value>Siri</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>TextSpectaclesServlet</servlet-name>
+        <servlet-class>za.ac.tut.web.TextSpectaclesServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>TextSpectaclesServlet</servlet-name>
+        <url-pattern>/TextSpectaclesServlet.do</url-pattern>
+    </servlet-mapping>
+    <session-config>
+        <session-timeout>
+            30
+        </session-timeout>
+    </session-config>
+    <exception-type>za.ac.tut.exceptions.InvalidMessageException</exception-type>
+        <location>/InvalidMessageException.jsp</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>za.ac.tut.exceptions.EmptyDataException</exception-type>
+        <location>/EmptyDataException.jsp</location>
+    </error-page>
+
+    <error-page>
+        <exception-type>java.io.FileNotFoundException</exception-type>
+        <location>/FileNotFoundException.jsp</location>
+</web-app>
